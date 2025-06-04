@@ -21,34 +21,23 @@
             <p class="flex-1"></p>
             <div class="flex-1 flex flex-row justify-evenly items-center">
                 <a href="" class="text-emerald-400">profile</a>
-                <img src="./pfp.jpg" alt="" class="size-10">
+                <div class="rounded-full overflow-hidden bg-[url(./pfp.jpg)] bg-center size-8 my-2 bg-cover"></div>
             </div>
         </div>
     </nav>
     <div class="flex flex-row mx-5 gap-5 h-full my-10">
         <div class="flex-1 flex flex-col">
-            <div class="flex-3 bg-zinc-800 p-5 rounded-xl flex flex-col">
-                <div class="rounded-full overflow-hidden bg-[url(./pfp.jpg)] bg-center w-50 h-50 bg-contain"></div>
-                <h2 class="">welcome</h2>
-                <h1 class="font-bold uppercase text-xl pb-2">Ethan Funk</h1>
-                <div class="grow flex flex-col justify-center">
-                    <!-- <div class="flex flex-row justify-between px-2">
-                        <h3 class="text-zinc-400">DOB:</h3>
-                        <h3 class="text-white ">11/15/2002</h3>
-                    </div>
-                    <div class="flex flex-row justify-between px-2">
-                        <h3 class="text-zinc-400">Weight:</h3>
-                        <h3 class="text-white ">135 lbs.</h3>
-                    </div>
-                    <div class="flex flex-row justify-between px-2">
-                        <h3 class="text-zinc-400">Height:</h3>
-                        <h3 class="text-white ">5'10.5"</h3>
-                    </div> -->
+            <div class="flex-3">
+                <div class="bg-zinc-800 p-5 rounded-xl flex flex-col">
+                    <div class="rounded-full overflow-hidden bg-[url(./pfp.jpg)] bg-center w-50 h-50 bg-cover"></div>
+                    <h2 class="">welcome</h2>
+                    <h1 id="display_name" class="font-bold uppercase text-xl pb-2"></h1>
                 </div>
             </div>
             <div class="flex-1 flex flex-col items-ce">
                 <p class="flex-3"></p>
-                <a href="./edit.html" class="flex-1 bg-emerald-400 p-1 mx-9 max-h-15 rounded-full text-center">Edit
+                <a href="./edit.html"
+                    class="flex-1 bg-emerald-400 py-2 px-4 mx-auto w-full max-h-10 rounded-full text-center">Edit
                     Information</a>
             </div>
         </div>
@@ -72,122 +61,122 @@
                 <div id="tab1" class="tab_content ">
                     <div class="grid grid-cols-6 gap-4 mx-5 py-4">
                         <h3 class="text-zinc-400">First:</h3>
-                        <h3 id="fname" class="text-white"></h3>
+                        <h3 id="fname" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Middle:</h3>
-                        <h3 id="mname" class="text-white"></h3>
+                        <h3 id="mname" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Last:</h3>
-                        <h3 id="lname" class="text-white"></h3>
+                        <h3 id="lname" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Suffix:</h3>
-                        <h3 id="sname" class="text-white"></h3>
+                        <h3 id="sname" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Preferred:</h3>
-                        <h3 id="pname" class="text-white"></h3>
+                        <h3 id="pname" class="text-white border-b-1 border-white/25"></h3>
                     </div>
 
                     <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400">DOB:</h3>
-                        <h3 id="dob" class="text-white"></h3>
+                        <h3 id="dob" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Age:</h3>
-                        <h3 id="age" class="text-white"></h3>
+                        <h3 id="age" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Height:</h3>
-                        <h3 id="height" class="text-white"></h3>
+                        <h3 id="height" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Weight:</h3>
-                        <h3 id="weight" class="text-white"></h3>
+                        <h3 id="weight" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Gender:</h3>
-                        <h3 id="gender" class="text-white"></h3>
+                        <h3 id="gender" class="text-white border-b-1 border-white/25"></h3>
                         <p></p>
                         <h3 class="text-zinc-400 col-span-2">Primary Language:</h3>
-                        <h3 id="plang" class="text-white col-span-2"></h3>
+                        <h3 id="plang" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <p></p>
                         <h3 class="text-zinc-400 col-span-2">Secondary Language:</h3>
-                        <h3 id="slang" class="text-white col-span-2"></h3>
+                        <h3 id="slang" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                     </div>
 
                     <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400">Address:</h3>
-                        <h3 id="addr" class="text-white col-span-3"></h3>
+                        <h3 id="addr" class="text-white col-span-3 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Apt #:</h3>
-                        <h3 id="apt" class="text-white"></h3>
+                        <h3 id="apt" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">City:</h3>
-                        <h3 id="city" class="text-white"></h3>
+                        <h3 id="city" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">State:</h3>
-                        <h3 id="state" class="text-white"></h3>
+                        <h3 id="state" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Zip:</h3>
-                        <h3 id="zip" class="text-white"></h3>
+                        <h3 id="zip" class="text-white border-b-1 border-white/25"></h3>
                     </div>
                     <div class="grid grid-cols-8 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400 col-span-2">Home Phone:</h3>
-                        <h3 id="hphone" class="text-white col-span-2"></h3>
+                        <h3 id="hphone" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400 col-span-2">Work Phone:</h3>
-                        <h3 id="wphone" class="text-white col-span-2"></h3>
+                        <h3 id="wphone" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400 col-span-2">Cell Phone:</h3>
-                        <h3 id="cphone" class="text-white col-span-2"></h3>
+                        <h3 id="cphone" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                     </div>
                 </div>
                 <div id="tab2" class="tab_content hidden">
                     <div class="grid grid-cols-8 gap-4 mx-5 py-4">
                         <h3 class="col-span-8 font-bold text-center">Primary Insurance</h3>
                         <h3 class="text-zinc-400">Company</h3>
-                        <h3 id="pcomp" class="text-white col-span-2"></h3>
+                        <h3 id="pcomp" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Policy #</h3>
-                        <h3 id="ppolicy" class="text-white"></h3>
+                        <h3 id="ppolicy" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Group #</h3>
-                        <h3 id="pgroup" class="text-white"></h3>
+                        <h3 id="pgroup" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400 col-span-2">Subscriber Name</h3>
-                        <h3 id="psub" class="text-white col-span-2"></h3>
+                        <h3 id="psub" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">SSN</h3>
-                        <h3 id="pssn" class="text-white col-span-2">***-**-****</h3>
+                        <h3 id="pssn" class="text-white col-span-2 border-b-1 border-white/25">***-**-****</h3>
                         <p></p>
                         <h3 class="text-zinc-400">DOB</h3>
-                        <h3 id="pdob" class="text-white col-span-2"></h3>
+                        <h3 id="pdob" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Address:</h3>
-                        <h3 id="paddr" class="text-white col-span-3"></h3>
+                        <h3 id="paddr" class="text-white col-span-3 border-b-1 border-white/25"></h3>
                         <p></p>
                         <h3 class="text-zinc-400">Apt #:</h3>
-                        <h3 id="papt" class="text-white"></h3>
+                        <h3 id="papt" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">City:</h3>
-                        <h3 id="pcity" class="text-white"></h3>
+                        <h3 id="pcity" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">State:</h3>
-                        <h3 id="pstate" class="text-white"></h3>
+                        <h3 id="pstate" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Zip:</h3>
-                        <h3 id="pzip" class="text-white"></h3>
+                        <h3 id="pzip" class="text-white border-b-1 border-white/25"></h3>
                     </div>
 
                     <div class="grid grid-cols-8 gap-4 mx-5 py-4 border-t-2 border-white/50">
                         <h3 class="col-span-8 font-bold text-center">Secondary Insurance</h3>
                         <h3 class="text-zinc-400">Company</h3>
-                        <h3 id="scomp" class="text-white col-span-2"></h3>
+                        <h3 id="scomp" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Policy #</h3>
-                        <h3 id="spolicy" class="text-white"></h3>
+                        <h3 id="spolicy" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Group #</h3>
-                        <h3 id="sgroup" class="text-white"></h3>
+                        <h3 id="sgroup" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400 col-span-2">Subscriber Name</h3>
-                        <h3 id="ssub" class="text-white col-span-2"></h3>
+                        <h3 id="ssub" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">SSN</h3>
-                        <h3 id="sssn" class="text-white col-span-2">***-**-****</h3>
+                        <h3 id="sssn" class="text-white col-span-2 border-b-1 border-white/25">***-**-****</h3>
                         <p></p>
                         <h3 class="text-zinc-400">DOB</h3>
-                        <h3 id="sdob" class="text-white col-span-2"></h3>
+                        <h3 id="sdob" class="text-white col-span-2 border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Address:</h3>
-                        <h3 id="saddr" class="text-white col-span-3"></h3>
+                        <h3 id="saddr" class="text-white col-span-3 border-b-1 border-white/25"></h3>
                         <p></p>
                         <h3 class="text-zinc-400">Apt #:</h3>
-                        <h3 id="sapt" class="text-white"></h3>
+                        <h3 id="sapt" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">City:</h3>
-                        <h3 id="scity" class="text-white"></h3>
+                        <h3 id="scity" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">State:</h3>
-                        <h3 id="sstate" class="text-white"></h3>
+                        <h3 id="sstate" class="text-white border-b-1 border-white/25"></h3>
                         <h3 class="text-zinc-400">Zip:</h3>
-                        <h3 id="szip" class="text-white"></h3>
+                        <h3 id="szip" class="text-white border-b-1 border-white/25"></h3>
                     </div>
                 </div>
                 <div id="tab3" class="tab_content hidden">
-                    tab3
+                    <h3 class="mx-5 py-4">List of Personal Medical Conditions or Complications</h3>
                 </div>
                 <div id="tab4" class="tab_content hidden">
-                    tab4
+                    <h3 class="mx-5 py-4">List of Medical Conditions or Complications Within the Family</h3>
                 </div>
                 <div id="tab5" class="tab_content hidden">
-                    tab5
+                    <h3 class="mx-5 py-4">More Tabs to Come...</h3>
                 </div>
             </div>
         </div>
@@ -209,6 +198,18 @@
         if (sname) document.getElementById('sname').textContent = sname;
         const pname = localStorage.getItem('pname');
         if (pname) document.getElementById('pname').textContent = pname;
+
+        if (pname) document.getElementById('display_name').textContent = pname;
+        else {
+            if (fname) {
+                document.getElementById('display_name').textContent = fname;
+                if (lname) document.getElementById('display_name').textContent += " " + lname;
+            }
+            else {
+                if (lname) document.getElementById('display_name').textContent = lname;
+                else document.getElementById('display_name').textContent = "back";
+            }
+        }
 
         const dob = localStorage.getItem('dob');
         if (dob) document.getElementById('dob').textContent = dob;

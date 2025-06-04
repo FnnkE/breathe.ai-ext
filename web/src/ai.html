@@ -21,54 +21,24 @@
             <p class="flex-1"></p>
             <div class="flex-1 flex flex-row justify-evenly items-center">
                 <a href="./profile.html">profile</a>
-                <img src="./pfp.jpg" alt="" class="size-10">
+                <div class="rounded-full overflow-hidden bg-[url(./pfp.jpg)] bg-center size-8 my-2 bg-cover"></div>
             </div>
         </div>
     </nav>
     <div class="flex-grow flex flex-col mx-3 justify-end min-h-0 max-h-fit">
-        <div class="mx-3 overflow-y-scroll">
+        <div id="container" class="mx-3 overflow-y-scroll">
             <div class="py-2">
                 <h1 class="italic text-lg">AI</h1>
                 <p class="pl-4">How can I help you?</p>
             </div>
-            <div class="py-2 text-right">
-                <h1 class="italic text-lg">YOU</h1>
-                <p class="pr-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium ad quae vero amet cumque eos dolores esse ipsa dignissimos. Omnis quos ut molestiae fuga explicabo porro sed at quidem veniam.</p>
-            </div>
-            <div class="py-2">
-                <h1 class="italic text-lg">AI</h1>
-                <p class="pl-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse exercitationem dicta error
-                    fugit magni libero corrupti unde animi! Tempore minima omnis illum beatae maxime voluptatem impedit
-                    consequuntur, velit at architecto.</p>
-            </div>
-            <div class="py-2">
-                <h1 class="italic text-lg">AI</h1>
-                <p class="pl-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo iure, labore doloremque
-                    sit saepe fugit rem distinctio accusantium. Harum, reiciendis minus. Architecto optio nulla dolorum
-                    ipsa velit excepturi dolor modi!</p>
-            </div>
-            <div class="py-2">
-                <h1 class="italic text-lg">AI</h1>
-                <p class="pl-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores amet, optio quis rem
-                    aperiam rerum nam excepturi animi porro distinctio, voluptatibus minus consequuntur sapiente
-                    veritatis in, nisi consequatur eaque ducimus.</p>
-            </div>
-            <div class="py-2">
-                <h1 class="italic text-lg">AI</h1>
-                <p class="pl-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequuntur, ut esse quas
-                    natus eligendi ipsam corporis exercitationem eveniet placeat facilis est at rerum dolorem quae unde.
-                    Accusamus, ducimus quas!</p>
-            </div>
-            <div class="py-2">
-                <h1 class="italic text-lg">AI</h1>
-                <p class="pl-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequuntur, ut esse quas
-                    natus eligendi ipsam corporis exercitationem eveniet placeat facilis est at rerum dolorem quae unde.
-                    Accusamus, ducimus quas!</p>
-            </div>
         </div>
         <div class="py-3 sticky">
-            <input type="text" name="input-bar" id="input-bar" placeholder="I am feeling a little under the weather..."
-                class="bg-zinc-700 text-white h-10 rounded-2xl w-full px-5">
+            <form onsubmit="publishInput(event)" class="">
+                <input type="text" name="input-bar" id="input-bar"
+                    placeholder="I am feeling a little under the weather..."
+                    class="bg-zinc-700 text-white h-10 rounded-2xl w-full px-5">
+            </form>
+
         </div>
     </div>
     <footer class="flex flex-col sticky">
@@ -76,6 +46,35 @@
         <p class="bg-rose-400/50 text-center">this software should not replace the need to see a medical professional.
         </p>
     </footer>
+    <script>
+        function publishInput(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            const container = document.getElementById('container');
+
+            const input_value = document.getElementById('input-bar').value;
+            console.log("Submitted value:", input_value);
+
+            const newInput = document.createElement('div');
+            newInput.className = "py-2 text-right"
+
+            const header = document.createElement("h1")
+            header.className = "italic text-lg"
+            header.textContent = "YOU"
+
+            const content = document.createElement("p")
+            content.className = "pr-4"
+            content.textContent = input_value
+
+            newInput.appendChild(header)
+            newInput.appendChild(content)
+
+            container.appendChild(newInput)
+
+            document.getElementById('input-bar').value = ""
+            document.getElementById('input-bar').placeholder = ""
+        }
+    </script>
 </body>
 
 </html>
