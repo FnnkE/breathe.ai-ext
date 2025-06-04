@@ -10,10 +10,10 @@
 
 <body class="h-screen font-anon bg-zinc-900 text-white flex flex-col justify-between selection:bg-emerald-400">
     <nav class="flex flex-row justify-between align-middle sticky top-0 bg-zinc-800 items-center">
-        <h1 class="text-3xl flex-1 ml-2">breathe<span class="text-emerald-400">.ai</span></h1>
+        <a href="service.html" class="text-3xl flex-1 ml-2">breathe<span class="text-emerald-400">.ai</span></a>
         <div class="flex-1 flex justify-evenly items-center">
             <a href="./index.html">home</a>
-            <a href="" class="line-through">schedule</a>
+            <a href="schedule.html" class="">schedule</a>
             <a href="./ai.html">ai</a>
         </div>
         <div class="flex flex-row flex-1">
@@ -226,7 +226,7 @@
         if (wphone) document.getElementById('wphone').value = wphone;
         var cphone = localStorage.getItem('cphone');
         if (cphone) document.getElementById('cphone').value = cphone;
-        
+
         var pcomp = localStorage.getItem('pcomp');
         if (pcomp) document.getElementById('pcomp').value = pcomp;
         var ppolicy = localStorage.getItem('ppolicy');

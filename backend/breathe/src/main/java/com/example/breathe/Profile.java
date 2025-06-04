@@ -1,4 +1,3 @@
-// Import Necessary Statements
 package com.example.breathe;
 
 public class Profile {

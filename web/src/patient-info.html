@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="./index.css" type="text/css" rel="stylesheet"> -->
+    <link href="./output.css" rel="stylesheet">
+    <title>breathe.ai</title>
+</head>
+
+<body class="h-screen font-anon bg-zinc-900 text-white flex flex-col justify-between selection:bg-amber-500">
+    <nav class="flex flex-row justify-between align-middle sticky top-0 bg-zinc-800 items-center">
+        <a href="index.html" class="text-3xl flex-1 ml-2">breathe<span class="text-amber-500">.ai</span></a>
+        <div class="flex-1 flex justify-evenly items-center">
+            <a href="./service.html">home</a>
+        </div>
+        <div class="flex flex-row flex-1">
+            <p class="flex-1"></p>
+            <div class="flex-1 flex flex-row justify-evenly items-center">
+                <a href="./service-profile.html" class="">profile</a>
+                <div class="rounded-full overflow-hidden bg-[url(./pfp.jpg)] bg-center size-8 my-2 bg-cover"></div>
+            </div>
+        </div>
+    </nav>
+    <div class="flex flex-row mx-5 gap-5 h-full my-10">
+        <div class="flex-1 flex flex-col">
+            <div class="flex-3">
+                <div class="bg-zinc-800 p-5 rounded-xl flex flex-col gap-10">
+                    <div class="rounded-full overflow-hidden bg-[url(./Funk_profile.jpg)] bg-center w-50 h-50 bg-cover">
+                    </div>
+                    <h1 id="display_name" class="font-bold uppercase text-4xl pb-2"></h1>
+                    <h3 class="border-t-2 border-white/50">Upcoming Visits:</h3>
+                    <div class="">
+                        <h1 onclick="highlightTracker()" class="font-bold uppercase pb-2">6/15/2025</h1>
+                        <p>
+                            Appointment regarding bad cough and runny nose. Symptoms lasting 2 weeks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="flex-1 flex flex-col items-ce">
+                <p class="flex-3"></p>
+                <a href="./edit.html"
+                    class="flex-1 bg-amber-500 py-2 px-4 mx-auto w-full max-h-10 rounded-full text-center">Edit
+                    Information</a>
+            </div> -->
+        </div>
+
+        <div class="flex-3 flex flex-row">
+            <div class=" bg-zinc-800 rounded-xl flex flex-col grow">
+                <div class="flex flex-row justify-between text-center bg-zinc-900/50">
+                    <button onclick="switchTab(event,1)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5 bg-zinc-800">Personal</button>
+                    <button onclick="switchTab(event,2)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5">Visit</button>
+                    <button onclick="switchTab(event,3)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5">Tracker
+                        History</button>
+
+                </div>
+                <div id="tab1" class="tab_content ">
+                    <div class="grid grid-cols-6 gap-4 mx-5 py-4">
+                        <h3 class="text-zinc-400">First:</h3>
+                        <h3 id="fname" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Middle:</h3>
+                        <h3 id="mname" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Last:</h3>
+                        <h3 id="lname" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Suffix:</h3>
+                        <h3 id="sname" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Preferred:</h3>
+                        <h3 id="pname" class="text-white border-b-1 border-white/25"></h3>
+                    </div>
+
+                    <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
+                        <h3 class="text-zinc-400">DOB:</h3>
+                        <h3 id="dob" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Age:</h3>
+                        <h3 id="age" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Height:</h3>
+                        <h3 id="height" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Weight:</h3>
+                        <h3 id="weight" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Gender:</h3>
+                        <h3 id="gender" class="text-white border-b-1 border-white/25"></h3>
+                        <p></p>
+                        <h3 class="text-zinc-400 col-span-2">Primary Language:</h3>
+                        <h3 id="plang" class="text-white col-span-2 border-b-1 border-white/25"></h3>
+                        <p></p>
+                        <h3 class="text-zinc-400 col-span-2">Secondary Language:</h3>
+                        <h3 id="slang" class="text-white col-span-2 border-b-1 border-white/25"></h3>
+                    </div>
+
+                    <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
+                        <h3 class="text-zinc-400">Address:</h3>
+                        <h3 id="addr" class="text-white col-span-3 border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Apt #:</h3>
+                        <h3 id="apt" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">City:</h3>
+                        <h3 id="city" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">State:</h3>
+                        <h3 id="state" class="text-white border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <h3 id="zip" class="text-white border-b-1 border-white/25"></h3>
+                    </div>
+                    <div class="grid grid-cols-8 gap-4 border-t-2 border-white/50 mx-5 py-4">
+                        <h3 class="text-zinc-400 col-span-2">Home Phone:</h3>
+                        <h3 id="hphone" class="text-white col-span-2 border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400 col-span-2">Work Phone:</h3>
+                        <h3 id="wphone" class="text-white col-span-2 border-b-1 border-white/25"></h3>
+                        <h3 class="text-zinc-400 col-span-2">Cell Phone:</h3>
+                        <h3 id="cphone" class="text-white col-span-2 border-b-1 border-white/25"></h3>
+                    </div>
+                </div>
+                <div id="tab2" class="tab_content hidden">
+                    <div class="flex flex-row">
+                        <div class="flex-1">
+                            <h3 class="mx-5 py-4 font-bold">Summary</h3>
+                            <li class="mx-5">Complained about feeling sick for a couple of weeks.</li>
+                            <li class="mx-5">Did not report a fever but claimed to feel hot on occasion</li>
+                            <li class="mx-5">Symptoms include congestion, runny nose, painful cough, and muscle soreness.</li>
+                        </div>
+                        <div class="flex-1 border-l-2 border-white/50 w-full mx-auto">
+                            <h3 class="mx-5 py-4 font-bold">Guidance</h3>
+                            <div class="flex-col">
+                                <h1 class="mx-10 text-emerald-400">Common Cold</h1>
+                                <h1 class="mx-10 text-emerald-400">Flu</h1>
+                                <h1 class="mx-10 text-amber-500">Allergies</h1>
+                                <h1 class="mx-10 text-red-500">Lung Cancer</h1>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="pt-5 w-full">
+                        <h3 class="mx-5 py-4 border-t-2 border-white/50 font-bold">Past Visits:</h3>
+                        <div class="flex flex-col mx-5 gap-5">
+                            <div class="bg-zinc-700 rounded-2xl p-5 hover:shadow-md hover:shadow-amber-500 duration-200">
+                                <h1 class="font-bold uppercase pb-2">8/11/2024</h1>
+                                <p>
+                                    Food poisoning lasting for a few days.
+                                </p>
+                            </div>
+                            <div class="bg-zinc-700 rounded-2xl p-5 hover:shadow-md hover:shadow-amber-500 duration-200">
+                                <h1 class="font-bold uppercase pb-2">4/23/2024</h1>
+                                <p>
+                                    Severe sore throat with fever.
+                                </p>
+                            </div>
+                            <div class="bg-zinc-700 rounded-2xl p-5 hover:shadow-md hover:shadow-amber-500 duration-200">
+                                <h1 class="font-bold uppercase pb-2">3/01/2022</h1>
+                                <p>
+                                    Complaints of congestion, fever, and sore throat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab3" class="tab_content hidden">
+                    <h3 id="tracker" class="mx-5 py-4">List of trackers</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="flex flex-col">
+        <p class="mx-auto">copyright 2025</p>
+        <p class="bg-rose-400/50 text-center">this software should not replace the need to see a medical professional.
+        </p>
+    </footer>
+    <script src="index.js"></script>
+    <script>
+        const fname = localStorage.getItem('fname');
+        if (fname) document.getElementById('fname').textContent = fname;
+        const mname = localStorage.getItem('mname');
+        if (mname) document.getElementById('mname').textContent = mname;
+        const lname = localStorage.getItem('lname');
+        if (lname) document.getElementById('lname').textContent = lname;
+        const sname = localStorage.getItem('sname');
+        if (sname) document.getElementById('sname').textContent = sname;
+        const pname = localStorage.getItem('pname');
+        if (pname) document.getElementById('pname').textContent = pname;
+
+        if (pname) document.getElementById('display_name').textContent = pname;
+        else {
+            if (fname) {
+                document.getElementById('display_name').textContent = fname;
+                if (lname) document.getElementById('display_name').textContent += " " + lname;
+            }
+            else {
+                if (lname) document.getElementById('display_name').textContent = lname;
+                else document.getElementById('display_name').textContent = "back";
+            }
+        }
+
+        const dob = localStorage.getItem('dob');
+        if (dob) document.getElementById('dob').textContent = dob;
+        const age = localStorage.getItem('age');
+        if (age) document.getElementById('age').textContent = age;
+        const height = localStorage.getItem('height');
+        if (height) document.getElementById('height').textContent = height;
+        const weight = localStorage.getItem('weight');
+        if (weight) document.getElementById('weight').textContent = weight;
+        const gender = localStorage.getItem('gender');
+        if (gender) document.getElementById('gender').textContent = gender;
+        const plang = localStorage.getItem('plang');
+        if (plang) document.getElementById('plang').textContent = plang;
+        const slang = localStorage.getItem('slang');
+        if (slang) document.getElementById('slang').textContent = slang;
+
+        const addr = localStorage.getItem('addr');
+        if (addr) document.getElementById('addr').textContent = addr;
+        const apt = localStorage.getItem('apt');
+        if (apt) document.getElementById('apt').textContent = apt;
+        const city = localStorage.getItem('city');
+        if (city) document.getElementById('city').textContent = city;
+        const state = localStorage.getItem('state');
+        if (state) document.getElementById('state').textContent = state;
+        const zip = localStorage.getItem('zip');
+        if (zip) document.getElementById('zip').textContent = zip;
+
+        const pcomp = localStorage.getItem('pcomp');
+        if (pcomp) document.getElementById('pcomp').textContent = pcomp;
+        const ppolicy = localStorage.getItem('ppolicy');
+        if (ppolicy) document.getElementById('ppolicy').textContent = ppolicy;
+        const pgroup = localStorage.getItem('pgroup');
+        if (pgroup) document.getElementById('pgroup').textContent = pgroup;
+        const psub = localStorage.getItem('psub');
+        if (psub) document.getElementById('psub').textContent = psub;
+        const pdob = localStorage.getItem('pdob');
+        if (pdob) document.getElementById('pdob').textContent = pdob;
+        const paddr = localStorage.getItem('paddr');
+        if (paddr) document.getElementById('paddr').textContent = paddr;
+        const papt = localStorage.getItem('papt');
+        if (papt) document.getElementById('papt').textContent = papt;
+        const pcity = localStorage.getItem('pcity');
+        if (pcity) document.getElementById('pcity').textContent = pcity;
+        const pstate = localStorage.getItem('pstate');
+        if (pstate) document.getElementById('pstate').textContent = pstate;
+        const pzip = localStorage.getItem('pzip');
+        if (pzip) document.getElementById('pzip').textContent = pzip;
+
+        const scomp = localStorage.getItem('scomp');
+        if (scomp) document.getElementById('scomp').textContent = scomp;
+        const spolicy = localStorage.getItem('spolicy');
+        if (spolicy) document.getElementById('spolicy').textContent = spolicy;
+        const sgroup = localStorage.getItem('sgroup');
+        if (sgroup) document.getElementById('sgroup').textContent = sgroup;
+        const ssub = localStorage.getItem('ssub');
+        if (ssub) document.getElementById('ssub').textContent = ssub;
+        const sdob = localStorage.getItem('sdob');
+        if (sdob) document.getElementById('sdob').textContent = sdob;
+        const saddr = localStorage.getItem('saddr');
+        if (saddr) document.getElementById('saddr').textContent = saddr;
+        const sapt = localStorage.getItem('sapt');
+        if (sapt) document.getElementById('sapt').textContent = sapt;
+        const scity = localStorage.getItem('scity');
+        if (scity) document.getElementById('scity').textContent = scity;
+        const sstate = localStorage.getItem('sstate');
+        if (sstate) document.getElementById('sstate').textContent = sstate;
+        const szip = localStorage.getItem('szip');
+        if (szip) document.getElementById('szip').textContent = szip;
+
+    </script>
+
+    <script>
+        function highlightTracker() {
+            document.getElementById('tracker').className = ("transition-shadow duration-500 shadow-md shadow-amber-500")
+            switchTab(event, 3)
+            setTimeout(() => {
+                document.getElementById('tracker').className = ("transition-shadow duration-500 shadow-none")
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

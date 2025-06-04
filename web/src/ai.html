@@ -11,10 +11,10 @@
 
 <body class="h-screen font-anon bg-zinc-900 text-white flex flex-col justify-between selection:bg-emerald-400">
     <nav class="flex-none flex flex-row justify-between align-middle sticky top-0 bg-zinc-800 items-center">
-        <h1 class="text-3xl flex-1 ml-2">breathe<span class="text-emerald-400">.ai</span></h1>
+        <a href="service.html" class="text-3xl flex-1 ml-2">breathe<span class="text-emerald-400">.ai</span></a>
         <div class="flex-1 flex justify-evenly items-center">
             <a href="./index.html">home</a>
-            <a href="" class="line-through">schedule</a>
+            <a href="schedule.html" class="">schedule</a>
             <a href="" class="text-emerald-400">ai</a>
         </div>
         <div class="flex flex-row flex-1">
@@ -47,13 +47,14 @@
         </p>
     </footer>
     <script>
-        function publishInput(event) {
+        async function publishInput(event) {
             event.preventDefault(); // Prevent actual form submission
 
             const container = document.getElementById('container');
 
-            const input_value = document.getElementById('input-bar').value;
-            if (!input_value) return
+            const message = document.getElementById('input-bar').value;
+            if (!message) return
+            let input_value = message.trim();
 
             const newInput = document.createElement('div');
             newInput.className = "py-2 text-right"
@@ -73,6 +74,61 @@
 
             document.getElementById('input-bar').value = ""
             document.getElementById('input-bar').placeholder = ""
+
+            try {
+            let response = await fetch("http://localhost:8080/api/claude", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(input_value)
+            });
+      
+            let textData = await response.text();
+
+            let jsonData = JSON.parse(textData);
+      
+            let aiMessage = jsonData.content[0].text;
+      
+            // split AI message by line breaks and turn them into separate paragraphs
+            //stack overflow solution?!
+            let lines = aiMessage.split('\n');
+            let paragraphs = "";
+      
+            // AI message
+            let aiBox = document.createElement('div');
+
+            aiBox.innerHTML = "<h1>AI</h1>" + paragraphs;
+
+            container.appendChild(aiBox);
+      
+            container.scrollTop = container.scrollHeight;
+
+
+            const newInputAI = document.createElement('div');
+            newInputAI.className = "py-2 text-left"
+
+            const headerAI = document.createElement("h1")
+            headerAI.className = "italic text-lg"
+            headerAI.textContent = "AI"
+
+            newInputAI.appendChild(headerAI)
+            //loop through every line
+            for (let i = 0; i < lines.length; i++) {
+                let contentAI = document.createElement("p")
+                contentAI.className = "pr-4"
+                contentAI.textContent = lines[i]
+                newInputAI.appendChild(contentAI)
+            }
+
+            container.appendChild(newInputAI)
+
+          } catch (error) {
+
+            let errorBox = document.createElement('div');
+
+            errorBox.innerHTML = "<h1>Error</h1><p>Could not connect to server.</p>";
+
+            container.appendChild(errorBox);
+          }
         }
     </script>
 </body>
