@@ -32,7 +32,7 @@
                 <h2 class="">welcome</h2>
                 <h1 class="font-bold uppercase text-xl pb-2">Ethan Funk</h1>
                 <div class="grow flex flex-col justify-center">
-                    <div class="flex flex-row justify-between px-2">
+                    <!-- <div class="flex flex-row justify-between px-2">
                         <h3 class="text-zinc-400">DOB:</h3>
                         <h3 class="text-white ">11/15/2002</h3>
                     </div>
@@ -43,12 +43,13 @@
                     <div class="flex flex-row justify-between px-2">
                         <h3 class="text-zinc-400">Height:</h3>
                         <h3 class="text-white ">5'10.5"</h3>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="flex-1 flex flex-col items-ce">
                 <p class="flex-3"></p>
-                <a href="./edit.html" class="flex-1 bg-emerald-400 p-1 mx-9 max-h-15 rounded-full text-center">Edit Information</a>
+                <a href="./edit.html" class="flex-1 bg-emerald-400 p-1 mx-9 max-h-15 rounded-full text-center">Edit
+                    Information</a>
             </div>
         </div>
 
@@ -56,68 +57,128 @@
             <div class=" bg-zinc-800 rounded-xl flex flex-col grow">
                 <div class="flex flex-row justify-between text-center bg-zinc-900/50">
                     <button onclick="switchTab(event,1)"
-                        class="tab_links flex-1 p-5 bg-zinc-800 rounded-t-xl">Personal</button>
-                    <button onclick="switchTab(event,2)" class="tab_links flex-1 p-5">Insurance</button>
-                    <button onclick="switchTab(event,3)" class="tab_links flex-1 p-5">Medical History</button>
-                    <button onclick="switchTab(event,4)" class="tab_links flex-1 p-5">Family History</button>
-                    <button onclick="switchTab(event,5)" class="tab_links flex-1 p-5">...</button>
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5 bg-zinc-800">Personal</button>
+                    <button onclick="switchTab(event,2)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5">Insurance</button>
+                    <button onclick="switchTab(event,3)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5">Medical
+                        History</button>
+                    <button onclick="switchTab(event,4)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5">Family
+                        History</button>
+                    <button onclick="switchTab(event,5)"
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-t-xl flex-1 p-5">...</button>
                 </div>
                 <div id="tab1" class="tab_content ">
                     <div class="grid grid-cols-6 gap-4 mx-5 py-4">
                         <h3 class="text-zinc-400">First:</h3>
-                        <h3 class="text-white ">Ethan</h3>
+                        <h3 id="fname" class="text-white"></h3>
                         <h3 class="text-zinc-400">Middle:</h3>
-                        <h3 class="text-white ">G</h3>
+                        <h3 id="mname" class="text-white"></h3>
                         <h3 class="text-zinc-400">Last:</h3>
-                        <h3 class="text-white ">Funk</h3>
+                        <h3 id="lname" class="text-white"></h3>
                         <h3 class="text-zinc-400">Suffix:</h3>
-                        <h3 class="text-white ">N/A</h3>
+                        <h3 id="sname" class="text-white"></h3>
                         <h3 class="text-zinc-400">Preferred:</h3>
-                        <h3 class="text-white ">Ethan</h3>
+                        <h3 id="pname" class="text-white"></h3>
                     </div>
 
                     <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400">DOB:</h3>
-                        <h3 class="text-white ">11/15/2002</h3>
+                        <h3 id="dob" class="text-white"></h3>
                         <h3 class="text-zinc-400">Age:</h3>
-                        <h3 class="text-white ">22</h3>
+                        <h3 id="age" class="text-white"></h3>
                         <h3 class="text-zinc-400">Height:</h3>
-                        <h3 class="text-white ">5'10.5"</h3>
+                        <h3 id="height" class="text-white"></h3>
                         <h3 class="text-zinc-400">Weight:</h3>
-                        <h3 class="text-white ">135 lbs.</h3>
+                        <h3 id="weight" class="text-white"></h3>
                         <h3 class="text-zinc-400">Gender:</h3>
-                        <h3 class="text-white ">Male</h3>
+                        <h3 id="gender" class="text-white"></h3>
                         <p></p>
                         <h3 class="text-zinc-400 col-span-2">Primary Language:</h3>
-                        <h3 class="text-white col-span-2">English</h3>
+                        <h3 id="plang" class="text-white col-span-2"></h3>
                         <p></p>
                         <h3 class="text-zinc-400 col-span-2">Secondary Language:</h3>
-                        <h3 class="text-white col-span-2">N/A</h3>
+                        <h3 id="slang" class="text-white col-span-2"></h3>
                     </div>
 
                     <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400">Address:</h3>
-                        <h3 class="text-white col-span-3">4786 Gainsborough Dr.</h3>
+                        <h3 id="addr" class="text-white col-span-3"></h3>
                         <h3 class="text-zinc-400">Apt #:</h3>
-                        <h3 class="text-white"> N/A</h3>
+                        <h3 id="apt" class="text-white"></h3>
                         <h3 class="text-zinc-400">City:</h3>
-                        <h3 class="text-white"> Fairfax</h3>
+                        <h3 id="city" class="text-white"></h3>
                         <h3 class="text-zinc-400">State:</h3>
-                        <h3 class="text-white"> VA</h3>
-                        <h3 class="text-zinc-400">City:</h3>
-                        <h3 class="text-white">Fairfax</h3>
+                        <h3 id="state" class="text-white"></h3>
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <h3 id="zip" class="text-white"></h3>
                     </div>
                     <div class="grid grid-cols-8 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400 col-span-2">Home Phone:</h3>
-                        <h3 class="text-white col-span-2">N/A</h3>
+                        <h3 id="hphone" class="text-white col-span-2"></h3>
                         <h3 class="text-zinc-400 col-span-2">Work Phone:</h3>
-                        <h3 class="text-white col-span-2">N/A</h3>
+                        <h3 id="wphone" class="text-white col-span-2"></h3>
                         <h3 class="text-zinc-400 col-span-2">Cell Phone:</h3>
-                        <h3 class="text-white col-span-2">804-972-9790</h3>
+                        <h3 id="cphone" class="text-white col-span-2"></h3>
                     </div>
                 </div>
                 <div id="tab2" class="tab_content hidden">
-                    tab2
+                    <div class="grid grid-cols-8 gap-4 mx-5 py-4">
+                        <h3 class="col-span-8 font-bold text-center">Primary Insurance</h3>
+                        <h3 class="text-zinc-400">Company</h3>
+                        <h3 id="pcomp" class="text-white col-span-2"></h3>
+                        <h3 class="text-zinc-400">Policy #</h3>
+                        <h3 id="ppolicy" class="text-white"></h3>
+                        <h3 class="text-zinc-400">Group #</h3>
+                        <h3 id="pgroup" class="text-white"></h3>
+                        <h3 class="text-zinc-400 col-span-2">Subscriber Name</h3>
+                        <h3 id="psub" class="text-white col-span-2"></h3>
+                        <h3 class="text-zinc-400">SSN</h3>
+                        <h3 id="pssn" class="text-white col-span-2">***-**-****</h3>
+                        <p></p>
+                        <h3 class="text-zinc-400">DOB</h3>
+                        <h3 id="pdob" class="text-white col-span-2"></h3>
+                        <h3 class="text-zinc-400">Address:</h3>
+                        <h3 id="paddr" class="text-white col-span-3"></h3>
+                        <p></p>
+                        <h3 class="text-zinc-400">Apt #:</h3>
+                        <h3 id="papt" class="text-white"></h3>
+                        <h3 class="text-zinc-400">City:</h3>
+                        <h3 id="pcity" class="text-white"></h3>
+                        <h3 class="text-zinc-400">State:</h3>
+                        <h3 id="pstate" class="text-white"></h3>
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <h3 id="pzip" class="text-white"></h3>
+                    </div>
+
+                    <div class="grid grid-cols-8 gap-4 mx-5 py-4 border-t-2 border-white/50">
+                        <h3 class="col-span-8 font-bold text-center">Secondary Insurance</h3>
+                        <h3 class="text-zinc-400">Company</h3>
+                        <h3 id="scomp" class="text-white col-span-2"></h3>
+                        <h3 class="text-zinc-400">Policy #</h3>
+                        <h3 id="spolicy" class="text-white"></h3>
+                        <h3 class="text-zinc-400">Group #</h3>
+                        <h3 id="sgroup" class="text-white"></h3>
+                        <h3 class="text-zinc-400 col-span-2">Subscriber Name</h3>
+                        <h3 id="ssub" class="text-white col-span-2"></h3>
+                        <h3 class="text-zinc-400">SSN</h3>
+                        <h3 id="sssn" class="text-white col-span-2">***-**-****</h3>
+                        <p></p>
+                        <h3 class="text-zinc-400">DOB</h3>
+                        <h3 id="sdob" class="text-white col-span-2"></h3>
+                        <h3 class="text-zinc-400">Address:</h3>
+                        <h3 id="saddr" class="text-white col-span-3"></h3>
+                        <p></p>
+                        <h3 class="text-zinc-400">Apt #:</h3>
+                        <h3 id="sapt" class="text-white"></h3>
+                        <h3 class="text-zinc-400">City:</h3>
+                        <h3 id="scity" class="text-white"></h3>
+                        <h3 class="text-zinc-400">State:</h3>
+                        <h3 id="sstate" class="text-white"></h3>
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <h3 id="szip" class="text-white"></h3>
+                    </div>
                 </div>
                 <div id="tab3" class="tab_content hidden">
                     tab3
@@ -137,6 +198,87 @@
         </p>
     </footer>
     <script src="index.js"></script>
+    <script>
+        const fname = localStorage.getItem('fname');
+        if (fname) document.getElementById('fname').textContent = fname;
+        const mname = localStorage.getItem('mname');
+        if (mname) document.getElementById('mname').textContent = mname;
+        const lname = localStorage.getItem('lname');
+        if (lname) document.getElementById('lname').textContent = lname;
+        const sname = localStorage.getItem('sname');
+        if (sname) document.getElementById('sname').textContent = sname;
+        const pname = localStorage.getItem('pname');
+        if (pname) document.getElementById('pname').textContent = pname;
+
+        const dob = localStorage.getItem('dob');
+        if (dob) document.getElementById('dob').textContent = dob;
+        const age = localStorage.getItem('age');
+        if (age) document.getElementById('age').textContent = age;
+        const height = localStorage.getItem('height');
+        if (height) document.getElementById('height').textContent = height;
+        const weight = localStorage.getItem('weight');
+        if (weight) document.getElementById('weight').textContent = weight;
+        const gender = localStorage.getItem('gender');
+        if (gender) document.getElementById('gender').textContent = gender;
+        const plang = localStorage.getItem('plang');
+        if (plang) document.getElementById('plang').textContent = plang;
+        const slang = localStorage.getItem('slang');
+        if (slang) document.getElementById('slang').textContent = slang;
+
+        const addr = localStorage.getItem('addr');
+        if (addr) document.getElementById('addr').textContent = addr;
+        const apt = localStorage.getItem('apt');
+        if (apt) document.getElementById('apt').textContent = apt;
+        const city = localStorage.getItem('city');
+        if (city) document.getElementById('city').textContent = city;
+        const state = localStorage.getItem('state');
+        if (state) document.getElementById('state').textContent = state;
+        const zip = localStorage.getItem('zip');
+        if (zip) document.getElementById('zip').textContent = zip;
+
+        const pcomp = localStorage.getItem('pcomp');
+        if (pcomp) document.getElementById('pcomp').textContent = pcomp;
+        const ppolicy = localStorage.getItem('ppolicy');
+        if (ppolicy) document.getElementById('ppolicy').textContent = ppolicy;
+        const pgroup = localStorage.getItem('pgroup');
+        if (pgroup) document.getElementById('pgroup').textContent = pgroup;
+        const psub = localStorage.getItem('psub');
+        if (psub) document.getElementById('psub').textContent = psub;
+        const pdob = localStorage.getItem('pdob');
+        if (pdob) document.getElementById('pdob').textContent = pdob;
+        const paddr = localStorage.getItem('paddr');
+        if (paddr) document.getElementById('paddr').textContent = paddr;
+        const papt = localStorage.getItem('papt');
+        if (papt) document.getElementById('papt').textContent = papt;
+        const pcity = localStorage.getItem('pcity');
+        if (pcity) document.getElementById('pcity').textContent = pcity;
+        const pstate = localStorage.getItem('pstate');
+        if (pstate) document.getElementById('pstate').textContent = pstate;
+        const pzip = localStorage.getItem('pzip');
+        if (pzip) document.getElementById('pzip').textContent = pzip;
+
+        const scomp = localStorage.getItem('scomp');
+        if (scomp) document.getElementById('scomp').textContent = scomp;
+        const spolicy = localStorage.getItem('spolicy');
+        if (spolicy) document.getElementById('spolicy').textContent = spolicy;
+        const sgroup = localStorage.getItem('sgroup');
+        if (sgroup) document.getElementById('sgroup').textContent = sgroup;
+        const ssub = localStorage.getItem('ssub');
+        if (ssub) document.getElementById('ssub').textContent = ssub;
+        const sdob = localStorage.getItem('sdob');
+        if (sdob) document.getElementById('sdob').textContent = sdob;
+        const saddr = localStorage.getItem('saddr');
+        if (saddr) document.getElementById('saddr').textContent = saddr;
+        const sapt = localStorage.getItem('sapt');
+        if (sapt) document.getElementById('sapt').textContent = sapt;
+        const scity = localStorage.getItem('scity');
+        if (scity) document.getElementById('scity').textContent = scity;
+        const sstate = localStorage.getItem('sstate');
+        if (sstate) document.getElementById('sstate').textContent = sstate;
+        const szip = localStorage.getItem('szip');
+        if (szip) document.getElementById('szip').textContent = szip;
+
+    </script>
 </body>
 
 </html>

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="./index.css" type="text/css" rel="stylesheet"> -->
     <link href="./output.css" rel="stylesheet">
     <title>breathe.ai</title>
 </head>
@@ -30,16 +29,16 @@
             <div class="flex-3 bg-zinc-800/50 rounded-xl flex flex-col">
                 <div class="flex flex-col justify-between text-center bg-">
                     <button onclick="vertSwitchTab(event,1)"
-                        class="tab_links flex-1 p-5 bg-zinc-800 rounded-xl">Personal</button>
-                    <button onclick="vertSwitchTab(event,2)" class="tab_links flex-1 p-5">Insurance</button>
-                    <button onclick="vertSwitchTab(event,3)" class="tab_links flex-1 p-5">Medical History</button>
-                    <button onclick="vertSwitchTab(event,4)" class="tab_links flex-1 p-5">Family History</button>
-                    <button onclick="vertSwitchTab(event,5)" class="tab_links flex-1 p-5">...</button>
+                        class="tab_links hover:bg-zinc-800/50 duration-200 rounded-xl flex-1 p-5 bg-zinc-800">Personal</button>
+                    <button onclick="vertSwitchTab(event,2)" class="tab_links hover:bg-zinc-800/50 duration-200 rounded-xl flex-1 p-5">Insurance</button>
+                    <button onclick="vertSwitchTab(event,3)" class="tab_links hover:bg-zinc-800/50 duration-200 rounded-xl flex-1 p-5">Medical History</button>
+                    <button onclick="vertSwitchTab(event,4)" class="tab_links hover:bg-zinc-800/50 duration-200 rounded-xl flex-1 p-5">Family History</button>
+                    <button onclick="vertSwitchTab(event,5)" class="tab_links hover:bg-zinc-800/50 duration-200 rounded-xl flex-1 p-5">...</button>
                 </div>
             </div>
             <div class="flex-1 flex flex-col items-ce">
                 <p class="flex-3"></p>
-                <a href="./profile.html"
+                <button onclick="saveData()"
                     class="flex-1 bg-emerald-400 p-1 mx-9 max-h-15 rounded-full text-center">Save</a>
             </div>
         </div>
@@ -50,7 +49,7 @@
                 <div id="tab1" class="tab_content ">
                     <div class="grid grid-cols-6 gap-4 mx-5 py-4">
                         <h3 class="text-zinc-400">First:</h3>
-                        <input type="text" name="fname" id="fname" class="bg-zinc-400 rounded-xl p-1">
+                        <input type="text" name="fname" id="fname" class="bg-zinc-400 rounded-xl p-1" placeholder="">
                         <h3 class="text-zinc-400">Middle:</h3>
                         <input type="text" name="mname" id="mname" class="bg-zinc-400 rounded-xl p-1">
                         <h3 class="text-zinc-400">Last:</h3>
@@ -63,46 +62,98 @@
 
                     <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400">DOB:</h3>
-                        <h3 class="text-white ">11/15/2002</h3>
+                        <input type="date" name="dob" id="dob" class="bg-zinc-400 rounded-xl p-1">
                         <h3 class="text-zinc-400">Age:</h3>
-                        <h3 class="text-white ">22</h3>
+                        <input type="number" name="age" id="age" class="bg-zinc-400 rounded-xl p-1">
                         <h3 class="text-zinc-400">Height:</h3>
-                        <h3 class="text-white ">5'10.5"</h3>
+                        <input type="text" name="height" id="height" class="bg-zinc-400 rounded-xl p-1">
+
                         <h3 class="text-zinc-400">Weight:</h3>
-                        <h3 class="text-white ">135 lbs.</h3>
+                        <input type="number" name="weight" id="weight" class="bg-zinc-400 rounded-xl p-1">
                         <h3 class="text-zinc-400">Gender:</h3>
-                        <h3 class="text-white ">Male</h3>
+                        <input type="text" name="gender" id="gender" class="bg-zinc-400 rounded-xl p-1">
                         <p></p>
                         <h3 class="text-zinc-400 col-span-2">Primary Language:</h3>
-                        <h3 class="text-white col-span-2">English</h3>
-                        <p></p>
+                        <input type="text" name="plang" id="plang" class="bg-zinc-400 rounded-xl p-1 col-span-4 w-full">
                         <h3 class="text-zinc-400 col-span-2">Secondary Language:</h3>
-                        <h3 class="text-white col-span-2">N/A</h3>
+                        <input type="text" name="slang" id="slang" class="bg-zinc-400 rounded-xl p-1 col-span-4 w-full">
                     </div>
 
                     <div class="grid grid-cols-6 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400">Address:</h3>
-                        <h3 class="text-white col-span-3">4786 Gainsborough Dr.</h3>
+                        <input type="text" name="addr" id="addr" class="bg-zinc-400 rounded-xl p-1 col-span-3 w-full">
                         <h3 class="text-zinc-400">Apt #:</h3>
-                        <h3 class="text-white"> N/A</h3>
+                        <input type="text" name="apt" id="apt" class="bg-zinc-400 rounded-xl p-1">
                         <h3 class="text-zinc-400">City:</h3>
-                        <h3 class="text-white"> Fairfax</h3>
+                        <input type="text" name="city" id="city" class="bg-zinc-400 rounded-xl p-1">
                         <h3 class="text-zinc-400">State:</h3>
-                        <h3 class="text-white"> VA</h3>
-                        <h3 class="text-zinc-400">City:</h3>
-                        <h3 class="text-white">Fairfax</h3>
+                        <input type="text" name="state" id="state" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <input type="text" name="zip" id="zip" class="bg-zinc-400 rounded-xl p-1">
                     </div>
                     <div class="grid grid-cols-8 gap-4 border-t-2 border-white/50 mx-5 py-4">
                         <h3 class="text-zinc-400 col-span-2">Home Phone:</h3>
-                        <h3 class="text-white col-span-2">N/A</h3>
+                        <input type="tel" id="hphone" name="hphone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="bg-zinc-400 rounded-xl p-1 col-span-2">
                         <h3 class="text-zinc-400 col-span-2">Work Phone:</h3>
-                        <h3 class="text-white col-span-2">N/A</h3>
+                        <input type="tel" id="wphone" name="wphone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="bg-zinc-400 rounded-xl p-1 col-span-2">
                         <h3 class="text-zinc-400 col-span-2">Cell Phone:</h3>
-                        <h3 class="text-white col-span-2">804-972-9790</h3>
+                        <input type="tel" id="cphone" name="cphone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="bg-zinc-400 rounded-xl p-1 col-span-2">
                     </div>
                 </div>
                 <div id="tab2" class="tab_content hidden">
-                    tab2
+                    <div class="grid grid-cols-8 gap-4 mx-5 py-4">
+                        <h3 class="col-span-8 font-bold text-center">Primary Insurance</h3>
+                        <h3 class="text-zinc-400">Company</h3>
+                        <input type="text" name="pcomp" id="pcomp" class="bg-zinc-400 rounded-xl p-1 col-span-2">
+                        <h3 class="text-zinc-400">Policy #</h3>
+                        <input type="text" name="ppolicy" id="ppolicy" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Group #</h3>
+                        <input type="text" name="pgroup" id="pgroup" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400 col-span-2">Subscriber Name</h3>
+                        <input type="text" name="psub" id="psub" class="bg-zinc-400 rounded-xl p-1 col-span-2">
+                        <h3 class="text-zinc-400">SSN</h3>
+                        <h3 id="pssn" class="text-white col-span-2">***-**-****</h3>
+                        <p></p>
+                        <h3 class="text-zinc-400">DOB</h3>
+                        <input type="text" name="pdob" id="pdob" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Address:</h3>
+                        <input type="text" name="paddr" id="paddr" class="bg-zinc-400 rounded-xl p-1 col-span-3">
+                        <h3 class="text-zinc-400">Apt #:</h3>
+                        <input type="text" name="papt" id="papt" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">City:</h3>
+                        <input type="text" name="pcity" id="pcity" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">State:</h3>
+                        <input type="text" name="pstate" id="pstate" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <input type="text" name="pzip" id="pzip" class="bg-zinc-400 rounded-xl p-1">
+                    </div>
+
+                    <div class="grid grid-cols-8 gap-4 mx-5 py-4 border-t-2 border-white/50">
+                        <h3 class="col-span-8 font-bold text-center">Secondary Insurance</h3>
+                        <h3 class="text-zinc-400">Company</h3>
+                        <input type="text" name="scomp" id="scomp" class="bg-zinc-400 rounded-xl p-1 col-span-2">
+                        <h3 class="text-zinc-400">Policy #</h3>
+                        <input type="text" name="spolicy" id="spolicy" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Group #</h3>
+                        <input type="text" name="sgroup" id="sgroup" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400 col-span-2">Subscriber Name</h3>
+                        <input type="text" name="ssub" id="ssub" class="bg-zinc-400 rounded-xl p-1 col-span-2">
+                        <h3 class="text-zinc-400">SSN</h3>
+                        <h3 id="pssn" class="text-white col-span-2">***-**-****</h3>
+                        <p></p>
+                        <h3 class="text-zinc-400">DOB</h3>
+                        <input type="text" name="sdob" id="sdob" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Address:</h3>
+                        <input type="text" name="saddr" id="saddr" class="bg-zinc-400 rounded-xl p-1 col-span-3">
+                        <h3 class="text-zinc-400">Apt #:</h3>
+                        <input type="text" name="sapt" id="sapt" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">City:</h3>
+                        <input type="text" name="scity" id="scity" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">State:</h3>
+                        <input type="text" name="sstate" id="sstate" class="bg-zinc-400 rounded-xl p-1">
+                        <h3 class="text-zinc-400">Zip:</h3>
+                        <input type="text" name="szip" id="szip" class="bg-zinc-400 rounded-xl p-1">
+                    </div>
                 </div>
                 <div id="tab3" class="tab_content hidden">
                     tab3
@@ -122,6 +173,51 @@
         </p>
     </footer>
     <script src="index.js"></script>
+    <script>
+        var fname = localStorage.getItem('fname');
+        if (fname) document.getElementById('fname').value = fname;
+        var mname = localStorage.getItem('mname');
+        if (mname) document.getElementById('mname').value = mname;
+        var lname = localStorage.getItem('lname');
+        if (lname) document.getElementById('lname').value = lname;
+        var sname = localStorage.getItem('sname');
+        if (sname) document.getElementById('sname').value = sname;
+        var pname = localStorage.getItem('pname');
+        if (pname) document.getElementById('pname').value = pname;
+
+        var dob = localStorage.getItem('dob');
+        if (dob) document.getElementById('dob').value = dob;
+        var age = localStorage.getItem('age');
+        if (age) document.getElementById('age').value = age;
+        var height = localStorage.getItem('height');
+        if (height) document.getElementById('height').value = height;
+        var weight = localStorage.getItem('weight');
+        if (weight) document.getElementById('weight').value = weight;
+        var gender = localStorage.getItem('gender');
+        if (gender) document.getElementById('gender').value = gender;
+        var plang = localStorage.getItem('plang');
+        if (plang) document.getElementById('plang').value = plang;
+        var slang = localStorage.getItem('slang');
+        if (slang) document.getElementById('slang').value = slang;
+
+        var addr = localStorage.getItem('addr');
+        if (addr) document.getElementById('addr').value = addr;
+        var apt = localStorage.getItem('apt');
+        if (apt) document.getElementById('apt').value = apt;
+        var city = localStorage.getItem('city');
+        if (city) document.getElementById('city').value = city;
+        var state = localStorage.getItem('state');
+        if (state) document.getElementById('state').value = state;
+        var zip = localStorage.getItem('zip');
+        if (zip) document.getElementById('zip').value = zip;
+
+        var hphone = localStorage.getItem('hphone');
+        if (hphone) document.getElementById('hphone').value = hphone;
+        var wphone = localStorage.getItem('wphone');
+        if (wphone) document.getElementById('wphone').value = wphone;
+        var cphone = localStorage.getItem('cphone');
+        if (cphone) document.getElementById('cphone').value = cphone;
+    </script>
 </body>
 
 </html>
