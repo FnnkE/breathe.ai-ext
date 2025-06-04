@@ -24,14 +24,14 @@ public class ProfileController {
     @PostMapping
     public ResponseEntity<String> saveProfile(@RequestBody Profile profile)
     {
-        store.put("defaultPatient", profile);
+        store.put("guest", profile);
         return ResponseEntity.ok("Profile saved");
     }
 
     //Bind a method to HTTP Get
     @GetMapping
     public ResponseEntity<Profile> getProfile() {
-        Profile existing = store.get("defaultPatient");
+        Profile existing = store.get("guest");
         if (existing == null)
         {
             return ResponseEntity.noContent().build();
