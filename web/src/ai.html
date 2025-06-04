@@ -91,17 +91,6 @@
             // split AI message by line breaks and turn them into separate paragraphs
             //stack overflow solution?!
             let lines = aiMessage.split('\n');
-            let paragraphs = "";
-      
-            // AI message
-            let aiBox = document.createElement('div');
-
-            aiBox.innerHTML = "<h1>AI</h1>" + paragraphs;
-
-            container.appendChild(aiBox);
-      
-            container.scrollTop = container.scrollHeight;
-
 
             const newInputAI = document.createElement('div');
             newInputAI.className = "py-2 text-left"
