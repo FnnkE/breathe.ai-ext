@@ -32,13 +32,13 @@
                 <p class="pl-4">How can I help you?</p>
             </div>
         </div>
-        <div class="py-3 sticky">
-            <form onsubmit="publishInput(event)" class="">
+        <div class="py-3 sticky flex flex-row bg-zinc-700 text-white h-10 rounded-2xl w-full px-5 items-center">
+            <form onsubmit="publishInput(event)" class="grow">
                 <input type="text" name="input-bar" id="input-bar"
                     placeholder="I am feeling a little under the weather..."
-                    class="bg-zinc-700 text-white h-10 rounded-2xl w-full px-5">
+                    class="w-full outline-none">
             </form>
-
+            <button onclick="publishInput(event)" class="bg-zinc-600 w-7 h-7 rounded-full hover:bg-zinc-800/50 hover:cursor-pointer">></button>
         </div>
     </div>
     <footer class="flex flex-col sticky">
@@ -53,7 +53,7 @@
             const container = document.getElementById('container');
 
             const input_value = document.getElementById('input-bar').value;
-            console.log("Submitted value:", input_value);
+            if (!input_value) return
 
             const newInput = document.createElement('div');
             newInput.className = "py-2 text-right"
