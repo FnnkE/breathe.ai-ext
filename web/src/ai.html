@@ -111,10 +111,9 @@
             container.appendChild(newInputAI)
 
           } catch (error) {
-
             let errorBox = document.createElement('div');
 
-            errorBox.innerHTML = "<h1>Error</h1><p>Could not connect to server.</p>";
+            errorBox.innerHTML = "<h1>Error</h1><p>Could not connect to server. "+error+"</p>";
 
             container.appendChild(errorBox);
           }
