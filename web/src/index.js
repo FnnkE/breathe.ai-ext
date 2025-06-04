@@ -1,4 +1,4 @@
-function switchTab(evt, tabNum) {
+ function switchTab(evt, tabNum) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
