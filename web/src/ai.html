@@ -28,17 +28,17 @@
     <div class="flex-grow flex flex-col mx-3 justify-end min-h-0 max-h-fit">
         <div id="container" class="mx-3 overflow-y-scroll">
             <div class="py-2">
-                <h1 class="italic text-lg">AI</h1>
+                <h1 class="italic text-lg text-emerald-400">AI</h1>
                 <p class="pl-4">How can I help you?</p>
             </div>
         </div>
         <div class="py-3 sticky flex flex-row bg-zinc-700 text-white h-10 rounded-2xl w-full px-5 items-center">
-            <form onsubmit="publishInput(event)" class="grow">
+            <form class="grow" id="input-form">
                 <input type="text" name="input-bar" id="input-bar"
-                    placeholder="I am feeling a little under the weather..."
-                    class="w-full outline-none">
+                    placeholder="I am feeling a little under the weather..." class="w-full outline-none">
             </form>
-            <button onclick="publishInput(event)" class="bg-zinc-600 w-7 h-7 rounded-full hover:bg-zinc-800/50 hover:cursor-pointer">></button>
+            <button id="submit-btn"
+                class="bg-zinc-600 w-7 h-7 rounded-full hover:bg-zinc-800/50 hover:cursor-pointer">></button>
         </div>
     </div>
     <footer class="flex flex-col sticky">
@@ -47,77 +47,98 @@
         </p>
     </footer>
     <script>
-        async function publishInput(event) {
-            event.preventDefault(); // Prevent actual form submission
+        const chat = localStorage.getItem('chat');
+        console.log(chat)
+        if (chat) {
+            let container = document.getElementById('container');
+            container = chat
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function getInput(event) {
+            try {
+                let message = document.getElementById('input-bar').value;
+                if (!message) return
+                let input_value = message.trim();
+                if (!input_value) return
 
-            const container = document.getElementById('container');
+                let container = document.getElementById('container');
 
-            const message = document.getElementById('input-bar').value;
-            if (!message) return
-            let input_value = message.trim();
+                let newInput = document.createElement('div');
+                newInput.className = "py-2 text-right"
 
-            const newInput = document.createElement('div');
-            newInput.className = "py-2 text-right"
+                let header = document.createElement("h1")
+                header.className = "italic text-lg text-emerald-400"
+                header.textContent = "YOU"
 
-            const header = document.createElement("h1")
-            header.className = "italic text-lg"
-            header.textContent = "YOU"
+                let content = document.createElement("p")
+                content.className = "pr-4"
+                content.textContent = input_value
 
-            const content = document.createElement("p")
-            content.className = "pr-4"
-            content.textContent = input_value
+                newInput.appendChild(header)
+                newInput.appendChild(content)
 
-            newInput.appendChild(header)
-            newInput.appendChild(content)
+                container.appendChild(newInput)
 
-            container.appendChild(newInput)
+                document.getElementById('input-bar').value = ""
+                document.getElementById('input-bar').placeholder = ""
+                console.log("Input Saved")
 
-            document.getElementById('input-bar').value = ""
-            document.getElementById('input-bar').placeholder = ""
+                return input_value
+            } catch (err) {
+                console.log(err)
+                return
+            }
+        }
+
+        async function handleAI(usrIn) {
+            let text
+
+            // start thinking animation
 
             try {
-            let response = await fetch("http://localhost:8080/api/claude", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(input_value)
-            });
-      
-            let textData = await response.text();
-
-            let jsonData = JSON.parse(textData);
-      
-            let aiMessage = jsonData.content[0].text;
-      
-            // split AI message by line breaks and turn them into separate paragraphs
-            //stack overflow solution?!
-            let lines = aiMessage.split('\n');
-
-            const newInputAI = document.createElement('div');
-            newInputAI.className = "py-2 text-left"
-
-            const headerAI = document.createElement("h1")
-            headerAI.className = "italic text-lg"
-            headerAI.textContent = "AI"
-
-            newInputAI.appendChild(headerAI)
-            //loop through every line
-            for (let i = 0; i < lines.length; i++) {
-                let contentAI = document.createElement("p")
-                contentAI.className = "pr-4"
-                contentAI.textContent = lines[i]
-                newInputAI.appendChild(contentAI)
+                const res = await fetch("/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ usrIn }),
+                });
+                text = await res.text();
+            } catch (err) {
+                text = "Error: " + err.message
             }
 
+            let newInputAI = document.createElement('div');
+            newInputAI.className = "py-2 text-left"
+
+            let headerAI = document.createElement("h1")
+            headerAI.className = "italic text-lg text-emerald-400"
+            headerAI.textContent = "AI"
+            newInputAI.appendChild(headerAI)
+
+            let contentAI = document.createElement("p")
+            contentAI.className = "pr-4"
+            contentAI.innerHTML = marked.parse(text)
+            newInputAI.appendChild(contentAI)
+
+            let container = document.getElementById('container');
             container.appendChild(newInputAI)
-
-          } catch (error) {
-            let errorBox = document.createElement('div');
-
-            errorBox.innerHTML = "<h1>Error</h1><p>Could not connect to server. "+error+"</p>";
-
-            container.appendChild(errorBox);
-          }
         }
+
+        document.getElementById("submit-btn").addEventListener("click", async (e) => {
+            usrIn = await getInput(e)
+            if (!usrIn) return
+            await handleAI(usrIn)
+            localStorage.setItem('chat', container);
+        })
+
+        document.getElementById("input-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            usrIn = await getInput(e)
+            if (!usrIn) return
+            await handleAI(usrIn)
+            localStorage.setItem('chat', container);
+        });
     </script>
 </body>
 
